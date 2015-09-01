@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ehcache>
+	<!-- CONFIGURE PATH FOR CACHE WHERE .DATA FILE WILL BE CREATED-->
+	<diskStore path="java.io.tmpdir" />
+	
+	<!--
+		CONFIGURE CACHE PROPERTIES maxInMemory, eternal, timeToIdleSeconds are
+		mandatory attributes. Remaining attributes are optional. Specification
+		of mandatory attributes is as follows. maxInMemory - Sets the maximum
+		number of objects that will be created in memory eternal - Sets
+		whether elements are eternal. If eternal, timeouts are ignored and the
+		element is never expired. timeToIdleSeconds - Sets the time to idle
+		for an element before it expires. i.e. The maximum amount of time
+		between accesses before an element expires. This attribute is only
+		used if the element is not eternal.
+	-->
+	<!-- Configure Default Cache and its properties -->
+
+	<defaultCache maxElementsInMemory="500" eternal="true"
+		overflowToDisk="false" memoryStoreEvictionPolicy="LFU" />
+
+	<!-- Configure Custom Cache and its properties -->
+
+	<cache name="codesDecodeCache" maxElementsInMemory="1110000"
+		eternal="true" timeToIdleSeconds="600" timeToLiveSeconds="600"
+		overflowToDisk="false" />
+
+</ehcache>
+
